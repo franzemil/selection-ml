@@ -1,0 +1,32 @@
+[project]
+name = "selection-ml"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Franz Emil Eulate Chacolla", email = "franzemil35@gmail.com"},
+]
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+    "numpy>=1.26.4",
+    "torch>=2.2.2",
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+dev = [
+    "pandas>=2.2.2",
+]
+[tool.pdm]
+distribution = false
+
+[[tool.pdm.source]]
+type = "find_links"
+url = "https://download.pytorch.org/whl/cpu/torch_stable.html"
+name = "torch"
+
+[tool.pdm.scripts]
+start = {cmd = "uvicorn src.selection_ml.main:app"}
+
